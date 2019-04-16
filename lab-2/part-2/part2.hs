@@ -1,6 +1,6 @@
 y x a
-    | (x > 1) && (x < 3) = (2 * x + a)
-    | x > 3 = a**(x-3)
+    | x < 0 = a**x
+    | (1 <= x) && (x <= 3) = tan x
     | otherwise = 0
 
 main = do
@@ -9,4 +9,6 @@ main = do
     putStrLn("Enter a")
     a <- getLine
     putStr("y(x) = ")
+    -- x = -2, a = 4 -> y = 0.0625
+    -- x = 1 -> y = 1.5574 
     print (y (read x) (read a))
