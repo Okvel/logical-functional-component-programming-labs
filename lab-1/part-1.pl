@@ -19,10 +19,10 @@ theMostLower :-
 
 findBigger([X],X).
 findBigger([X|T],X) :-
-    findLower(T,Y),
+    findBigger(T,Y),
     bigger(Y,X).
 findBigger([_|T],Y) :-
-    findLower(T,Y).
+    findBigger(T,Y).
 theMostBigger :-
     findall(X, (bigger(X,Y);lower(Y,X)), L) -> findBigger(L,M),
     format('~w is the most bigger object.', M).
