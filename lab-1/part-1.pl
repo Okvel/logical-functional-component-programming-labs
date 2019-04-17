@@ -1,3 +1,4 @@
+% assert(lower('obj1','obj2').
 :- dynamic bigger/2.
 :- dynamic lower/2.
 
