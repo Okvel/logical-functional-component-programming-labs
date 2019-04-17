@@ -3,26 +3,24 @@
 :- dynamic lower/2.
 
 bigger('car', 'motorcycle').
+bigger('motorcycle','scooter').
+bigger('plane','car').
+
 lower('car', 'jeep').
 lower('jeep', 'van').
+lower('van', 'bus').
 
-
-findLower([X],X).
-findLower([X|T],X) :-
-    findLower(T,Y),
-    lower(Y,X).
-findLower([_|T],Y) :-
-    findLower(T,Y).
 theMostLower :-
-    findall(X, (lower(X,Y);bigger(Y,X)), L) -> findLower(L,M),
-    format('~w is the most lower object.', M).
+    lower(X,_),
+    not(lower(_,X)),
+    format('~w is the most lower object', X).
 
-findBigger([X],X).
-findBigger([X|T],X) :-
-    findBigger(T,Y),
-    bigger(Y,X).
-findBigger([_|T],Y) :-
-    findBigger(T,Y).
 theMostBigger :-
-    findall(X, (bigger(X,Y);lower(Y,X)), L) -> findBigger(L,M),
-    format('~w is the most bigger object.', M).
+    bigger(B,_),
+    not(bigger(_,B)),
+    format('~w is the most bigger object.', B).
+
+start :-
+    theMostLower,
+    nl,
+    theMostBigger.
