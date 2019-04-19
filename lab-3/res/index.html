@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<SCRIPT language="javascript">
+		window.objTest = new ActiveXObject("lab3.ComClass");
+		function add() {
+			var x = parseFloat(document.getElementById('x').value);
+			var y = parseFloat(document.getElementById('y').value);
+			document.getElementById("result").value = Math.floor(objTest.Sum(x, y)*100)/100;
+		}
+		function sub() {
+			var x = parseFloat(document.getElementById('x').value);
+			var y = parseFloat(document.getElementById('y').value);
+			document.getElementById("result").value = Math.floor(objTest.Sub(x, y)*100)/100;
+		}
+		function mul() {
+			var x = parseFloat(document.getElementById('x').value);
+			var y = parseFloat(document.getElementById('y').value);
+			document.getElementById("result").value = Math.floor(objTest.Mul(x, y)*100)/100;
+		}
+		function div() {
+			var x = parseFloat(document.getElementById('x').value);
+			var y = parseFloat(document.getElementById('y').value);
+			document.getElementById("result").value = Math.floor(objTest.Div(x, y)*100)/100;
+		}
+	</SCRIPT>
+</HEAD>
+<BODY>
+	<div style=" width: 10px; display: inline-block">
+		X:
+		<INPUT Type="number" id="x">
+		Y:
+		<INPUT Type="number" id="y">
+	</div>
+	<br/><br/>
+	<div style="width: 7px; display: inline-block"></div>
+	<INPUT Type="button" onClick="add()" Value="+">
+	<INPUT Type="button" onClick="sub()" Value="-">
+	<INPUT Type="button" onClick="mul()" Value="*">
+	<INPUT Type="button" onClick="div()" Value="/">
+	<br/>
+	<br/>
+	<div style="width: 10px; display: inline-block">
+		<LABLE for="result">Result:</LABLE>
+		<INPUT Type="number" id="result">
+	</div>
+</BODY>
+</HTML>
